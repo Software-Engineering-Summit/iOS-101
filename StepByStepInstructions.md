@@ -7,7 +7,7 @@ In this workshop we'll be building a basic news app that will display different 
 ## 1. Initial Project Setup
 
 1. Open your Terminal, and navigate to the directory in which you want to download the repository
-2. Run the following command in Terminal to clone the repo: `git clone https://github.com/C1-SoftwareEngineeringSummit/NewsfeedUI.git`
+2. Run the following command in Terminal to clone the repo: `git clone https://github.com/Software-Engineering-Summit/iOS-101.git`
 3. Navigate to the starter project within the newly cloned repo: `cd NewsfeedUI/NewsfeedUI-Starter`
    * **NOTE:** You can also use the Finder app to navigate to `NewsfeedUI-Starter`
 4. Open the starter project in Xcode by running the following command: `xed .`
@@ -37,7 +37,7 @@ Next is `APIResponse.swift`. In this file, you'll find the classes `NewsArticle`
 
 `Models.swift` contains a class called `NewsFeed`. This class will fetch and store all of the different news articles from the API. It has a property for each category of news (`general`, `sports`, `health`, `entertainment`, `business`, `science`, & `technology`). These properties are arrays of `NewsArticle`'s corresponding to the different categories. As you can see, `NewsFeed` implements the `ObservableObject` protocol. An `ObservableObject` will publish announcements when it's values have changed so that SwiftUI can react to those changes and update the user interface. The properties in this class (`general`, `sports`, `health`, `entertainment`, `business`, `science`, & `technology`) are all marked as `@Published`, which tells SwiftUI that these properties should trigger change notifications. Later on in the workshop, you'll see how these properties are used to reactively display news articles. If you want to read more about this topic, [this is a good place to start](https://www.hackingwithswift.com/quick-start/swiftui/observable-objects-environment-objects-and-published). `NewsFeed` also contains a `static var sampleData`, which is just an array of sample news articles that we will use to test our app throughout the workshop.
 
-Under the "Views" group, we have also have `RemoteImage.swift`. This class defines a `View` called `RemoteImage` that will download and display an image from any URL that you provide to it. The implementation details are a bit out of the scope of this tutorial, but we will at least see how to use this `View` later on in the workshop.
+Under the "Views" group, we have also have `RemoteImage.swift`. This class defines a `View` called `RemoteImage` that will download and display an image from any URL that you provide to it using SwiftUI's `AsyncImage` under the hood. `RemoteImage` displays placeholder images while loading and also supports using local mock images for convenience. We'll see this `View` in action later on in the workshop.
 
 Lastly, we have `WebView.swift`. This struct is a SwiftUI wrapper around a `SFSafariViewController` which allows us to present a Safari browser view in SwiftUI. Again, this is a bit out of the scope of this tutorial, but feel free to check it out.
 
